@@ -17,3 +17,10 @@ Objetivo: Implementar um sistema distribuído todo em Java puro usando threads e
 - Escravos (Containers 2 e 3):
   - Escravo 1: Calcula quantidade de letras (endpoint /letras).
   - Escravo 2: Calcula quantidade de números (endpoint /números).
+
+## Dicas sobre Java
+
+Se você não sabe nada sobre java, ai vai algumas dicas
+
+- `javac Main.java` : Compila seu arquivo Main.java
+- `java Main` : Executa seu projeto java
