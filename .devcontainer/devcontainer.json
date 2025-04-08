@@ -1,0 +1,8 @@
+{
+    "name": "Java Container",
+    "image": "mcr.microsoft.com/devcontainers/java:17",
+    "workspaceFolder": "/workspace",
+    "mounts": [
+        "source=${localWorkspaceFolder},target=/workspace,type=bind"
+    ]
+}
