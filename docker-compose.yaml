@@ -25,3 +25,15 @@ services:
     depends_on:
       - java-slave1
       - java-slave2
+
+  java-server:
+    build:
+      context: ./src/backend/server
+      dockerfile: Dockerfile
+    container_name: java-server
+    ports:
+      - "80:80"
+    depends_on:
+      - java-master
+      - java-slave1
+      - java-slave2
