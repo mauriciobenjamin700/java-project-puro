@@ -14,3 +14,14 @@ services:
     container_name: java-slave2
     ports:
       - "8082:8000"
+
+  java-master:
+    build:
+      context: ./src/backend/master
+      dockerfile: Dockerfile
+    container_name: java-master
+    ports:
+      - "8080:8000"
+    depends_on:
+      - java-slave1
+      - java-slave2
