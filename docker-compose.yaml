@@ -1,0 +1,39 @@
+services:
+  java-slave1:
+    build:
+      context: ./src/backend/slave1
+      dockerfile: Dockerfile
+    container_name: java-slave1
+    ports:
+      - "8081:8000"
+  
+  java-slave2:
+    build:
+      context: ./src/backend/slave2
+      dockerfile: Dockerfile
+    container_name: java-slave2
+    ports:
+      - "8082:8000"
+
+  java-master:
+    build:
+      context: ./src/backend/master
+      dockerfile: Dockerfile
+    container_name: java-master
+    ports:
+      - "8080:8000"
+    depends_on:
+      - java-slave1
+      - java-slave2
+
+  java-server:
+    build:
+      context: ./src/backend/server
+      dockerfile: Dockerfile
+    container_name: java-server
+    ports:
+      - "80:80"
+    depends_on:
+      - java-master
+      - java-slave1
+      - java-slave2
