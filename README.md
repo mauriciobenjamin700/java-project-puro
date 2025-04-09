@@ -25,11 +25,29 @@ Se você não sabe nada sobre java, ai vai algumas dicas
 - `javac Main.java` : Compila seu arquivo Main.java
 - `java Main` : Executa seu projeto java
 
+## Informações Têcnicas
 
-### Testando os Escravos Diretamente
+Para enviar o arquivo de texto a ser processado pelo servidor JAVA, você deve fazer uma requisição HTTP do tipo POST, onde o conteúdo será no formato `Content-Type: multipart/form-data`.
 
-- curl -X POST http://localhost:8000/count -d "Hello, world!"
-- curl -X POST http://localhost:8000/count \
-  -H "Content-Type: application/json" \
-  -d '{"text": "meu texto xd"}'
+A rota que processa será `http://IP_DO_SERVIDOR/upload`
+
+O retorno do processamento será:
+
+```json
+{
+    "text": "Teste 01",
+    "letters": 5,
+    "digits": 2
+}
+```
+
+Exlicando o retorno
+
+- `text` : Chave contendo o texto lido pelo arquivo
+- `letters` : Total de letras contadas no texto
+- `digits` : Total de digitos contados no texto
+
+Para saber mais, recomendo que tenha o `postman` instalado em sua maquina e carregue a nossa documentação de API contida [neste arquivo](./docs/java-project-puro.postman_collection.json).
+
+## Como executar.
 
