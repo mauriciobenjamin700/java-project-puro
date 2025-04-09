@@ -10,7 +10,11 @@ import java.net.InetSocketAddress;
 public class Main {
     public static void main(String[] args) throws IOException {
         HttpServer server = HttpServer.create(new InetSocketAddress(8000), 0);
+
+        // Rotas do servidor
         server.createContext("/count", new CountHandler());
+        server.createContext("/available", new AvailabilityHandler());
+        
         server.setExecutor(null);
         System.out.println("Server running at http://localhost:8000/count");
         server.start();
@@ -62,5 +66,24 @@ public class Main {
             }
         }
         return count;
+    }
+
+    static class AvailabilityHandler implements HttpHandler {
+        @Override
+        public void handle(HttpExchange exchange) throws IOException {
+            if (!exchange.getRequestMethod().equalsIgnoreCase("GET")) {
+                exchange.sendResponseHeaders(405, -1);
+                return;
+            }
+
+            String jsonResponse = "{\"available\": true}";
+
+            exchange.getResponseHeaders().add("Content-Type", "application/json");
+            byte[] responseBytes = jsonResponse.getBytes();
+            exchange.sendResponseHeaders(200, responseBytes.length);
+            OutputStream os = exchange.getResponseBody();
+            os.write(responseBytes);
+            os.close();
+        }
     }
 }
