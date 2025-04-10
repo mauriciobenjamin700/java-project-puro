@@ -55,7 +55,7 @@ public class TelaEnvioArquivo extends JFrame {
 
                     if (arquivo.exists()) {
                         try {
-                            String urlBackend = "http://localhost:8083/upload"; // ou a URL da sua API real
+                            String urlBackend = "http://127.0.0.1/upload"; // ou a URL da sua API real
                             String resposta = UploadUtil.enviarArquivo(arquivo, urlBackend); // você vai criar essa classe
 
                             dispose(); // Fecha a tela atual

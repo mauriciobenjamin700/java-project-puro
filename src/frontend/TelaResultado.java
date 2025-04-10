@@ -24,8 +24,17 @@ public class TelaResultado extends JFrame {
             System.out.println("Erro ao processar JSON: " + e.getMessage());
         }
 
-        JLabel textoLabel = new JLabel("Texto analisado: " + texto, SwingConstants.CENTER);
-        textoLabel.setFont(new Font("Arial", Font.BOLD, 30));
+        // Área de texto com rolagem
+        JTextArea textoArea = new JTextArea("Texto analisado:\n\n" + texto);
+        textoArea.setFont(new Font("Arial", Font.PLAIN, 24));
+        textoArea.setLineWrap(true);
+        textoArea.setWrapStyleWord(true);
+        textoArea.setEditable(false);
+        textoArea.setBackground(new Color(240, 240, 240));
+        textoArea.setMargin(new Insets(10, 10, 10, 10));
+
+        JScrollPane scrollTexto = new JScrollPane(textoArea);
+        scrollTexto.setPreferredSize(new Dimension(1000, 300));
 
         JLabel letras = new JLabel("Quantidade de letras: " + letrasValor, SwingConstants.CENTER);
         letras.setFont(new Font("Arial", Font.BOLD, 40));
@@ -62,7 +71,7 @@ public class TelaResultado extends JFrame {
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.gridwidth = 2;
-        painel.add(textoLabel, gbc);
+        painel.add(scrollTexto, gbc);
 
         gbc.gridy = 1;
         painel.add(letras, gbc);
