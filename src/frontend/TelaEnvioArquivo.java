@@ -7,6 +7,9 @@ import java.io.IOException;
 public class TelaEnvioArquivo extends JFrame {
     private JTextField campoArquivo;
 
+    private static String URL_BACKEND = "http://127.0.0.1/upload";
+
+
     public TelaEnvioArquivo() {
         setTitle("Enviar Arquivo");
 
@@ -55,8 +58,8 @@ public class TelaEnvioArquivo extends JFrame {
 
                     if (arquivo.exists()) {
                         try {
-                            String urlBackend = "http://127.0.0.1/upload"; // ou a URL da sua API real
-                            String resposta = UploadUtil.enviarArquivo(arquivo, urlBackend); // você vai criar essa classe
+                            
+                            String resposta = UploadUtil.enviarArquivo(arquivo, URL_BACKEND); // você vai criar essa classe
 
                             dispose(); // Fecha a tela atual
                             new TelaResultado(resposta); // Mostra a resposta na nova tela

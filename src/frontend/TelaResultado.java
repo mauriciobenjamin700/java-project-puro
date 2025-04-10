@@ -11,6 +11,9 @@ public class TelaResultado extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
+        // Print da resposta JSON recebida do backend
+        System.out.println("Resposta do backend: " + respostaJson);
+
         String texto = "Não recebido";
         String letrasValor = "0";
         String numerosValor = "0";
