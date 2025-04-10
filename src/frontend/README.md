@@ -45,6 +45,11 @@ javac -cp .:json-20240303.jar *.java
 #### Compilar o código no Windows
 ```bash
 javac -cp .;json-20240303.jar *.java
+
+```
+
+```bash
+javac -cp ".;json-20240303.jar" -encoding UTF-8 *.java
 ```
 
 #### Executar o código Linux
@@ -61,6 +66,9 @@ Depois de compilar, execute o programa com:
 ```bash
 java -cp .;json-20240303.jar Main
 ```
+```bash
+java -cp ".;json-20240303.jar" Main
+``
 
 Isso abrirá a janela da interface gráfica do seu programa.
 
