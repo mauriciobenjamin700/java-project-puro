@@ -7,7 +7,12 @@ import java.io.IOException;
 public class TelaEnvioArquivo extends JFrame {
     private JTextField campoArquivo;
 
-    private static String URL_BACKEND = "http://127.0.0.1/upload";
+    
+    private static final String PROTOCOLO = "http://";
+    private static final String HOST = "127.0.0.1";
+    private static final String ENDPOINT = "/upload";
+    private static String URL_BACKEND = PROTOCOLO + HOST + ENDPOINT;
+
 
 
     public TelaEnvioArquivo() {
