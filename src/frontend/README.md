@@ -43,18 +43,18 @@ Agora, você pode compilar e executar o código no terminal. Aqui estão os pass
   javac -cp .:json-20240303.jar *.java
 ```
 
+#### Compilar o código no Windows
+
+```bash
+  javac -cp .;json-20240303.jar *.java
+```
+
 #### Executar o código no Linux
 
 Depois de compilar, execute o programa com:
 
 ```bash
   java -cp .:json-20240303.jar Main
-```
-
-#### Compilar o código no Windows
-
-```bash
-  javac -cp .;json-20240303.jar *.java
 ```
 
 #### Executar o código no Windows
