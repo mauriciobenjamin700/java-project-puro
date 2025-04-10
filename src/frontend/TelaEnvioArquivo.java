@@ -1,6 +1,8 @@
 import javax.swing.*;
 import java.io.File;
 import java.awt.*;
+import java.io.IOException;
+
 
 public class TelaEnvioArquivo extends JFrame {
     private JTextField campoArquivo;
@@ -44,10 +46,33 @@ public class TelaEnvioArquivo extends JFrame {
         botaoEnviar.setForeground(Color.WHITE); // Define a cor do texto do botão
         botaoEnviar.setPreferredSize(new Dimension(150, 50)); // Define o tamanho do botão
         botaoEnviar.setFocusPainted(false); // Remove o retângulo de foco ao redor do texto do botão
+        
         botaoEnviar.addActionListener(e -> {
-            dispose();
-            new TelaResultado(); // Apenas simula envio e mostra resultado
+            String caminho = campoArquivo.getText();
+
+                if (!caminho.isEmpty()) {
+                    File arquivo = new File(campoArquivo.getText());
+
+                    if (arquivo.exists()) {
+                        try {
+                            String urlBackend = "http://localhost:8083/upload"; // ou a URL da sua API real
+                            String resposta = UploadUtil.enviarArquivo(arquivo, urlBackend); // você vai criar essa classe
+
+                            dispose(); // Fecha a tela atual
+                            new TelaResultado(resposta); // Mostra a resposta na nova tela
+
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
+                            JOptionPane.showMessageDialog(this, "Erro ao enviar o arquivo: " + ex.getMessage());
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Arquivo não encontrado.");
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(this, "Por favor, selecione um arquivo antes de enviar.");
+                }
         });
+        
 
         // Configuração do layout principal
         JPanel painel = new JPanel(new GridBagLayout());

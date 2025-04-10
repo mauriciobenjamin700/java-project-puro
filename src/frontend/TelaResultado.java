@@ -1,26 +1,42 @@
 import javax.swing.*;
 import java.awt.*;
+import org.json.JSONObject;
 
 public class TelaResultado extends JFrame {
 
-    public TelaResultado() {
+    public TelaResultado(String respostaJson) {
         setTitle("Resultado");
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        setSize((int) (screenSize.width * 1.0), (int) (screenSize.height * 1.0)); // 100% da largura e altura da tela
+        setSize((int) (screenSize.width * 1.0), (int) (screenSize.height * 1.0));
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
-        // Textos com acentos
-        JLabel letras = new JLabel("Quantidade de letras: Valor retornado pelo servidor", SwingConstants.CENTER);
+        String texto = "Não recebido";
+        String letrasValor = "0";
+        String numerosValor = "0";
+
+        try {
+            JSONObject json = new JSONObject(respostaJson);
+            texto = json.getString("text");
+            letrasValor = String.valueOf(json.getInt("letters"));
+            numerosValor = String.valueOf(json.getInt("digits"));
+        } catch (Exception e) {
+            System.out.println("Erro ao processar JSON: " + e.getMessage());
+        }
+
+        JLabel textoLabel = new JLabel("Texto analisado: " + texto, SwingConstants.CENTER);
+        textoLabel.setFont(new Font("Arial", Font.BOLD, 30));
+
+        JLabel letras = new JLabel("Quantidade de letras: " + letrasValor, SwingConstants.CENTER);
         letras.setFont(new Font("Arial", Font.BOLD, 40));
-        
-        JLabel numeros = new JLabel("Quantidade de numeros: Valor retornado pelo servidor", SwingConstants.CENTER);
+
+        JLabel numeros = new JLabel("Quantidade de números: " + numerosValor, SwingConstants.CENTER);
         numeros.setFont(new Font("Arial", Font.BOLD, 40));
 
         JButton botaoVoltar = new JButton("Nova contagem");
         botaoVoltar.setFont(new Font("Arial", Font.BOLD, 20));
         botaoVoltar.setPreferredSize(new Dimension(250, 50));
-        botaoVoltar.setBackground(new Color(255, 140, 0)); // Verde escuro
+        botaoVoltar.setBackground(new Color(255, 140, 0));
         botaoVoltar.setForeground(Color.BLACK);
         botaoVoltar.setFocusPainted(false);
         botaoVoltar.addActionListener(e -> {
@@ -31,7 +47,7 @@ public class TelaResultado extends JFrame {
         JButton botaoSair = new JButton("Voltar para tela inicial");
         botaoSair.setFont(new Font("Arial", Font.BOLD, 20));
         botaoSair.setPreferredSize(new Dimension(250, 50));
-        botaoSair.setBackground(new Color(173, 216, 230)); // Azul claro
+        botaoSair.setBackground(new Color(173, 216, 230));
         botaoSair.setForeground(Color.BLACK);
         botaoSair.setFocusPainted(false);
         botaoSair.addActionListener(e -> {
@@ -39,42 +55,31 @@ public class TelaResultado extends JFrame {
             new TelaBoasVindas();
         });
 
-        // Configuração do layout principal
         JPanel painel = new JPanel(new GridBagLayout());
-        
         GridBagConstraints gbc = new GridBagConstraints();
 
-        // Ajuste das margens das labels
-        gbc.insets = new Insets(10, 10, 20, 10); // Margem superior maior para mover a primeira label para baixo
+        gbc.insets = new Insets(20, 10, 10, 10);
         gbc.gridx = 0;
         gbc.gridy = 0;
-        gbc.gridwidth = 2; // Ocupa duas colunas
-        gbc.anchor = GridBagConstraints.CENTER;
+        gbc.gridwidth = 2;
+        painel.add(textoLabel, gbc);
+
+        gbc.gridy = 1;
         painel.add(letras, gbc);
 
-        // Ajuste do espaçamento entre as labels
-        gbc.insets = new Insets(30, 10, 30, 10); // Espaçamento maior entre as labels
-        gbc.gridy = 1;
+        gbc.gridy = 2;
         painel.add(numeros, gbc);
 
-        // Ajuste do espaçamento entre as labels e os botões
-        gbc.insets = new Insets(50, 10, 10, 10); // Espaçamento entre as labels e os botões
-        gbc.gridy = 2;
+        gbc.gridy = 3;
+        gbc.insets = new Insets(40, 10, 10, 10);
 
-        // Painel para os botões com espaçamento ajustado
-        JPanel painelBotoes = new JPanel(new FlowLayout(FlowLayout.CENTER, 50, 0)); // Espaçamento horizontal entre os botões
+        JPanel painelBotoes = new JPanel(new FlowLayout(FlowLayout.CENTER, 50, 0));
         painelBotoes.add(botaoVoltar);
         painelBotoes.add(botaoSair);
 
-        gbc.gridwidth = 2; // Centraliza o painel de botões
         painel.add(painelBotoes, gbc);
 
         add(painel);
         setVisible(true);
-    }
-
-    public static void main(String[] args) {
-        System.setProperty("file.encoding", "UTF-8");
-        new TelaResultado();
     }
 }
