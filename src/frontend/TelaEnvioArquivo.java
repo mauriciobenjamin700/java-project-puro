@@ -9,7 +9,7 @@ public class TelaEnvioArquivo extends JFrame {
 
     
     private static final String PROTOCOLO = "http://";
-    private static final String HOST = "127.0.0.1";
+    private static final String HOST = "localhost";
     private static final String ENDPOINT = "/upload";
     private static String URL_BACKEND = PROTOCOLO + HOST + ENDPOINT;
 
