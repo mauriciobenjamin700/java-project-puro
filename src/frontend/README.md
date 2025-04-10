@@ -40,7 +40,7 @@ Agora, você pode compilar e executar o código no terminal. Aqui estão os pass
 #### Compilar o código
 
 ```bash
-javac Main.java
+javac -cp .:json-20240303.jar *.java
 ```
 
 #### Executar o código
@@ -48,7 +48,7 @@ javac Main.java
 Depois de compilar, execute o programa com:
 
 ```bash
-java Main
+java -cp .:json-20240303.jar Main
 ```
 
 Isso abrirá a janela da interface gráfica do seu programa.
