@@ -37,18 +37,29 @@ Isso indica que o **JDK** está instalado corretamente.
 
 Agora, você pode compilar e executar o código no terminal. Aqui estão os passos:
 
-#### Compilar o código
+#### Compilar o código Linux
 
 ```bash
 javac -cp .:json-20240303.jar *.java
 ```
+#### Compilar o código no Windows
+```bash
+javac -cp .;json-20240303.jar *.java
+```
 
-#### Executar o código
+#### Executar o código Linux
 
 Depois de compilar, execute o programa com:
 
 ```bash
 java -cp .:json-20240303.jar Main
+```
+#### Executar o código Windows
+
+Depois de compilar, execute o programa com:
+
+```bash
+java -cp .;json-20240303.jar Main
 ```
 
 Isso abrirá a janela da interface gráfica do seu programa.
