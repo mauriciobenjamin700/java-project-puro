@@ -27,8 +27,8 @@ public class TelaEnvioArquivo extends JFrame {
         JButton botaoEscolher = new JButton("Escolher Arquivo");
         botaoEscolher.setFont(new Font("Arial", Font.BOLD, 20)); // Define o tamanho da fonte do botão
         botaoEscolher.setPreferredSize(new Dimension(200, 50)); // Define o tamanho do botão
-        botaoEscolher.setBackground(Color.LIGHT_GRAY); // Define a cor de fundo do botão
-        botaoEscolher.setForeground(Color.BLACK); // Define a cor do texto do botão
+        botaoEscolher.setBackground(Color.BLUE); // Define a cor de fundo do botão
+        botaoEscolher.setForeground(Color.WHITE); // Define a cor do texto do botão
         botaoEscolher.setFocusPainted(false); // Remove o retângulo de foco ao redor do texto do botão
         botaoEscolher.addActionListener(e -> escolherArquivo());
 
@@ -40,7 +40,7 @@ public class TelaEnvioArquivo extends JFrame {
 
         JButton botaoEnviar = new JButton("Enviar");
         botaoEnviar.setFont(new Font("Arial", Font.PLAIN, 20)); // Define o tamanho da fonte do botão
-        botaoEnviar.setBackground(Color.GREEN); // Define a cor de fundo do botão
+        botaoEnviar.setBackground(new Color(0,100,0)); // Define a cor de fundo do botão
         botaoEnviar.setForeground(Color.WHITE); // Define a cor do texto do botão
         botaoEnviar.setPreferredSize(new Dimension(150, 50)); // Define o tamanho do botão
         botaoEnviar.setFocusPainted(false); // Remove o retângulo de foco ao redor do texto do botão
@@ -51,6 +51,7 @@ public class TelaEnvioArquivo extends JFrame {
 
         // Configuração do layout principal
         JPanel painel = new JPanel(new GridBagLayout());
+        painel.setBackground(Color.LIGHT_GRAY);
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(10, 10, 10, 10); // Margens internas para espaçamento
 

@@ -20,7 +20,7 @@ public class TelaResultado extends JFrame {
         JButton botaoVoltar = new JButton("Nova contagem");
         botaoVoltar.setFont(new Font("Arial", Font.BOLD, 20));
         botaoVoltar.setPreferredSize(new Dimension(250, 50));
-        botaoVoltar.setBackground(Color.YELLOW);
+        botaoVoltar.setBackground(new Color(255, 140, 0)); // Verde escuro
         botaoVoltar.setForeground(Color.BLACK);
         botaoVoltar.setFocusPainted(false);
         botaoVoltar.addActionListener(e -> {
@@ -31,7 +31,7 @@ public class TelaResultado extends JFrame {
         JButton botaoSair = new JButton("Voltar para tela inicial");
         botaoSair.setFont(new Font("Arial", Font.BOLD, 20));
         botaoSair.setPreferredSize(new Dimension(250, 50));
-        botaoSair.setBackground(Color.LIGHT_GRAY);
+        botaoSair.setBackground(new Color(173, 216, 230)); // Azul claro
         botaoSair.setForeground(Color.BLACK);
         botaoSair.setFocusPainted(false);
         botaoSair.addActionListener(e -> {
@@ -41,6 +41,7 @@ public class TelaResultado extends JFrame {
 
         // Configuração do layout principal
         JPanel painel = new JPanel(new GridBagLayout());
+        
         GridBagConstraints gbc = new GridBagConstraints();
 
         // Ajuste das margens das labels

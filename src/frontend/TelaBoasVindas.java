@@ -18,7 +18,8 @@ public class TelaBoasVindas extends JFrame {
         // Botão "Realizar Contagem" com tamanho individual
         JButton botaoContagem = new JButton("Realizar Contagem");
         botaoContagem.setFont(new Font("Arial", Font.PLAIN, 20)); // Fonte menor
-        botaoContagem.setBackground(Color.GREEN); // Define a cor de fundo do botão
+        //botaoContagem.setBackground(Color.GREEN); // Define a cor de fundo do botão
+        botaoContagem.setBackground(new Color(0, 100, 0)); // verde escuro
         botaoContagem.setForeground(Color.WHITE); // Define a cor do texto do botão
         botaoContagem.setPreferredSize(new Dimension(250, 60)); // Define o tamanho do botão
         botaoContagem.setFocusPainted(false); // Remove o retângulo de foco ao redor do texto do botão
@@ -30,7 +31,8 @@ public class TelaBoasVindas extends JFrame {
         // Botão "Sair" com tamanho individual
         JButton botaoSair = new JButton("Sair");
         botaoSair.setFont(new Font("Arial", Font.PLAIN, 20)); // Fonte menor
-        botaoSair.setBackground(Color.RED); // Define a cor de fundo do botão
+        //botaoSair.setBackground(Color.RED); // Define a cor de fundo do botão
+        botaoSair.setBackground(new Color(139, 0, 0));     // vermelho escuro
         botaoSair.setForeground(Color.WHITE); // Define a cor do texto do botão
         botaoSair.setPreferredSize(new Dimension(250, 60)); // Define o tamanho do botão
         botaoSair.setFocusPainted(false); // Remove o retângulo de foco ao redor do texto do botão
@@ -42,6 +44,7 @@ public class TelaBoasVindas extends JFrame {
         JPanel painelBotoes = new JPanel(new FlowLayout(FlowLayout.CENTER, 60, 0)); // Espaçamento horizontal de 40px
         painelBotoes.add(botaoContagem);
         painelBotoes.add(botaoSair);
+        painelBotoes.setBackground(Color.LIGHT_GRAY);
 
         // Declara e inicializa o painel
         JPanel painel = new JPanel(new GridBagLayout());
@@ -53,6 +56,7 @@ public class TelaBoasVindas extends JFrame {
         // Painel principal com BoxLayout para alinhar os componentes verticalmente
         JPanel painelCentral = new JPanel();
         painelCentral.setLayout(new BoxLayout(painelCentral, BoxLayout.Y_AXIS));
+        painelCentral.setBackground(Color.LIGHT_GRAY); // ← AQUI define o fundo da tela como cinza
 
         // Adiciona espaçamento e componentes ao painel
         painelCentral.add(Box.createVerticalStrut(200)); // Espaçamento inicial da margem superior
