@@ -59,6 +59,14 @@ Isso abrirá a janela da interface gráfica do seu programa.
 
 O código usa apenas **Swing** (que já vem com o JDK), então você não precisa instalar bibliotecas externas. Certifique-se de que o **JDK** instalado inclui a biblioteca **Swing** (como no caso do OpenJDK 17). Isso é garantido, pois o Swing é parte da biblioteca padrão do JDK.
 
+Caso dê erro experimente instalar as seguintes libs:O exemplo abaixo é para o openjdk21, ajuste para sua versão instalada do java
+
+```bash
+sudo apt update
+sudo apt install openjdk-21-jdk openjdk-21-demo openjdk-21-source openjdk-21-doc libxext-dev libxrender-dev libxtst-dev libxi-dev libxt-dev
+
+```
+
 ---
 
 Com esses passos, você deve conseguir executar a aplicação GUI no seu Ubuntu 24.04 LTS sem problemas.
