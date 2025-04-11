@@ -49,5 +49,8 @@ Exlicando o retorno
 
 Para saber mais, recomendo que tenha o `postman` instalado em sua maquina e carregue a nossa documentação de API contida [neste arquivo](./docs/java-project-puro.postman_collection.json).
 
-## Como executar.
+## Como executar
 
+- Inicie o servidor usando `docker compose up -d --build`
+- Tenha na maquina cliente, o java instalado.
+- Siga os passos [deste guia](./src/frontend/README.md) para rodar o projeto com interface e testar.

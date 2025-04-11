@@ -89,3 +89,4 @@ sudo apt install openjdk-21-jdk openjdk-21-demo openjdk-21-source openjdk-21-doc
 ---
 
 Com esses passos, você deve conseguir executar a aplicação GUI no seu Ubuntu 24.04 LTS sem problemas.
+
